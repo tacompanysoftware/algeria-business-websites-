@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Formations | mrkz yjljyly ldwly lltdryb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0A0E17;
+            --bg-secondary: #111827;
+            --bg-card: #1F2937;
+            --accent-gold: #C5A059;
+            --accent-gold-light: #E5C158;
+            --accent-gold-glow: rgba(197, 160, 89, 0.25);
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-muted: #6B7280;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(197, 160, 89, 0.4);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-gold), #8A6D3B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A0E17;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 20px var(--accent-gold-glow);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold-light);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--accent-gold), #A37F3E);
+            color: #0A0E17;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 170px 0 80px;
+            background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+        }
+
+        /* Services Grid */
+        .section {
+            padding: 90px 0;
+        }
+
+        .category-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            border-color: var(--border-highlight);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-sm);
+            background: rgba(197, 160, 89, 0.12);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+        }
+
+        .category-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .benefit-item i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .action-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1.75rem;
+            color: var(--accent-gold-light);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .action-link-btn:hover {
+            color: #FFF;
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #06090F;
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-list i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .category-card {
+                padding: 1.75rem;
+            }
+            .category-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="brand-text">
+                    <span class="brand-name">mrkz yjljyly</span>
+                    <span class="brand-subtitle">Centre de Formation</span>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="about.html" class="nav-link">À Propos</a></li>
+                <li><a href="services.html" class="nav-link active">Nos Formations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="contact.html" class="nav-btn"><i class="fa-solid fa-paper-plane"></i> Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nos Domaines de Formation</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+                <span>Nos Formations</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Content -->
+    <section class="section">
+        <div class="container">
+            
+            <!-- Category 1 -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div>
+                        <h2 class="category-title">Informatique & Technologies Digitales</h2>
+                        <span style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 600;">COMPÉTENCES NUMÉRIQUES ET INNOVATION</span>
+                    </div>
+                </div>
+                <p class="category-desc">
+                    Des cursus ciblés pour développer l'aisance avec les outils informatiques modernes, le développement logiciel, la gestion de bases de données et les outils numériques incontournables.
+                </p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Bureautique avancée & Productivité</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Initiation et perfectionnement en programmation</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Conception et outils web modernes</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Travaux pratiques sur cas réels</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="action-link-btn">S'informer sur cette formation <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div>
+                        <h2 class="category-title">Management & Gestion d'Entreprise</h2>
+                        <span style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 600;">PILOTAGE ET PERFORMANCE ORGANISATIONNELLE</span>
+                    </div>
+                </div>
+                <p class="category-desc">
+                    Formations destinées à renforcer la gouvernance d'entreprise, la gestion de projet et l'optimisation des flux d'organisation au sein des structures publiques et privées.
+                </p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Fondamentaux du management de projet</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Techniques d'organisation administrative</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Gestion des ressources et de la performance</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Outils d'aide à la décision stratégique</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="action-link-btn">S'informer sur cette formation <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fa-solid fa-language"></i></div>
+                    <div>
+                        <h2 class="category-title">Langues Vivantes & Communication</h2>
+                        <span style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 600;">EXPRESSION PROFESSIONNELLE ET DIPLOMATIE</span>
+                    </div>
+                </div>
+                <p class="category-desc">
+                    Améliorez vos facultés d'expression orale et écrite en contextes professionnels et académiques. Un accompagnement intensif axé sur la maîtrise pragmatique des langues.
+                </p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Communication professionnelle appliquée</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Ateliers d'expression orale et de prise de parole</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Rédaction administrative et commerciale</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Renforcement de la confiance linguistique</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="action-link-btn">S'informer sur cette formation <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="category-card" style="margin-bottom: 0;">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <div>
+                        <h2 class="category-title">Formations Techniques & Métiers</h2>
+                        <span style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 600;">SAVOIR-FAIRE MÉTIER ET SPÉCIALISATION</span>
+                    </div>
+                </div>
+                <p class="category-desc">
+                    Programmes axés sur la maîtrise des techniques spécifiques aux activités professionnelles et industrielles régionales, assurant une montée en compétence concrète.
+                </p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Module technique spécialisé</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Normes d'hygiène, sécurité et qualité</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Ateliers pratiques encadrés</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Évaluation rigoureuse des acquis</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="action-link-btn">S'informer sur cette formation <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-logo" style="margin-bottom: 1.5rem;">
+                        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="brand-text">
+                            <span class="brand-name">mrkz yjljyly</span>
+                            <span class="brand-subtitle">ldwly lltdryb</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Centre de formation d'excellence à Jijel. Engagement pour la rigueur, l'innovation et le renforcement des compétences professionnelles.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="services.html">Nos Formations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Formations</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Technologies Numériques</a></li>
+                        <li><a href="services.html">Gestion & Management</a></li>
+                        <li><a href="services.html">Communication & Langues</a></li>
+                        <li><a href="services.html">Formations Métier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Coordonnées</h4>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Jijel 18034</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:034504459" style="color: var(--text-secondary);">034 50 44 59</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 mrkz yjljyly ldwly lltdryb. Tous droits réservés.</p>
+                <p>Centre de Formation - Jijel 18034</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

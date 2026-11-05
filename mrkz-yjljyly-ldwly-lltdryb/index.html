@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mrkz yjljyly ldwly lltdryb | Centre de Formation à Jijel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0A0E17;
+            --bg-secondary: #111827;
+            --bg-card: #1F2937;
+            --accent-gold: #C5A059;
+            --accent-gold-light: #E5C158;
+            --accent-gold-glow: rgba(197, 160, 89, 0.25);
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-muted: #6B7280;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(197, 160, 89, 0.4);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-gold), #8A6D3B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A0E17;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 20px var(--accent-gold-glow);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold-light);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--accent-gold), #A37F3E);
+            color: #0A0E17;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px var(--accent-gold-glow);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(197, 160, 89, 0.4);
+            background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 60%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--border-highlight);
+            color: var(--accent-gold-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold-light);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .hero-card-visual {
+            position: relative;
+        }
+
+        .hero-visual-frame {
+            background: linear-gradient(145deg, var(--bg-secondary), var(--bg-card));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hero-visual-frame::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-lg);
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent-gold), transparent 60%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .visual-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 1.25rem;
+        }
+
+        .visual-badge-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(197, 160, 89, 0.15);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Section Global */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent-gold);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-sm);
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--accent-gold);
+            color: #0A0E17;
+        }
+
+        .service-title {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--accent-gold-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 10px;
+            color: #FFF;
+        }
+
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: left;
+        }
+
+        .advantage-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-title {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .advantage-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Showcase Visual Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .showcase-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .showcase-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .showcase-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #06090F;
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 4px;
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-list i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="brand-text">
+                    <span class="brand-name">mrkz yjljyly</span>
+                    <span class="brand-subtitle">Centre de Formation</span>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                <li><a href="about.html" class="nav-link">À Propos</a></li>
+                <li><a href="services.html" class="nav-link">Nos Formations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="contact.html" class="nav-btn"><i class="fa-solid fa-paper-plane"></i> Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <i class="fa-solid fa-award"></i> Formation Professionnelle d'Excellence
+                </div>
+                <h1 class="hero-title">Développez vos compétences avec <span>mrkz yjljyly ldwly lltdryb</span></h1>
+                <p class="hero-description">
+                    Implanté au cœur de Jijel, notre centre de formation accompagne les professionnels, étudiants et entreprises vers le succès grâce à des programmes pédagogiques exigeants et adaptés aux réalités du marché.
+                </p>
+                <div class="hero-actions">
+                    <a href="services.html" class="nav-btn"><i class="fa-solid fa-book-open"></i> Découvrir nos programmes</a>
+                    <a href="contact.html" class="btn-outline"><i class="fa-solid fa-phone"></i> Nous contacter</a>
+                </div>
+            </div>
+            <div class="hero-card-visual">
+                <div class="hero-visual-frame">
+                    <div class="visual-badge">
+                        <div class="visual-badge-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Technologies & Management</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Formations pratiques intensives</p>
+                        </div>
+                    </div>
+                    <div class="visual-badge">
+                        <div class="visual-badge-icon"><i class="fa-solid fa-language"></i></div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Langues & Communication</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Mastery & certification continue</p>
+                        </div>
+                    </div>
+                    <div class="visual-badge" style="margin-bottom: 0;">
+                        <div class="visual-badge-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Cadre Pédagogique Moderne</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Environnement d'apprentissage haut de gamme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Notre Engagement</span>
+                <h2 class="section-title">Une Vision Moderne de l'Enseignement</h2>
+                <p class="section-description">
+                    mrkz yjljyly ldwly lltdryb s'impose comme un pôle de compétence clé à Jijel. Nous concevons chaque parcours de formation avec rigueur pour transformer le potentiel en réussite concrète.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Aperçu de nos offres</span>
+                <h2 class="section-title">Domaines d'Expertise</h2>
+                <p class="section-description">Des parcours conçus pour répondre aux besoins stratégiques des individus et des organisations.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="service-title">Informatique & Numérique</h3>
+                    <p class="service-text">Développement, bureautique avancée et technologies modernes pour maîtriser le paysage digital actuel.</p>
+                    <a href="services.html" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3 class="service-title">Management & Entreprise</h3>
+                    <p class="service-text">Gestion de projet, leadership et compétences clés pour dynamiser la performance des organisations.</p>
+                    <a href="services.html" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3 class="service-title">Langues & Communication</h3>
+                    <p class="service-text">Programmes linguistiques spécialisés pour perfectionner l'expression orale et écrite professionnelle.</p>
+                    <a href="services.html" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3 class="service-title">Formations Technique Métier</h3>
+                    <p class="service-text">Formations opérationnelles et pratiques adaptées aux exigences des secteurs d'activité locaux.</p>
+                    <a href="services.html" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Advantages -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Pourquoi Nous Choisir</span>
+                <h2 class="section-title">Les Atouts de Notre Centre</h2>
+                <p class="section-description">Une approche méthodique au service de votre évolution professionnelle.</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-number">01</div>
+                    <h3 class="advantage-title">Pédagogie Interactive</h3>
+                    <p class="advantage-desc">Des cours structurés axés sur la mise en pratique et des cas d'études réels.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-number">02</div>
+                    <h3 class="advantage-title">Équipements Modernes</h3>
+                    <p class="advantage-desc">Un environnement d'apprentissage répondant aux standards actuels du secteur.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-number">03</div>
+                    <h3 class="advantage-title">Suivi Personnalisé</h3>
+                    <p class="advantage-desc">Un accompagnement attentif pour garantir l'assimilation progressive de chaque apprenant.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-number">04</div>
+                    <h3 class="advantage-title">Ancrage à Jijel</h3>
+                    <p class="advantage-desc">Un centre accessible au niveau local répondant à vos exigences d'apprentissage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Showcase -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Environnement de Formation</span>
+                <h2 class="section-title">Espaces et Méthodes</h2>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <i class="fa-solid fa-microchip showcase-icon"></i>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Ateliers Pratiques</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Mise en application immédiate des savoir-faire académiques.</p>
+                </div>
+                <div class="showcase-item">
+                    <i class="fa-solid fa-users showcase-icon"></i>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Groupes Restreints</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Favoriser les échanges et une attention dédiée par apprenant.</p>
+                </div>
+                <div class="showcase-item">
+                    <i class="fa-solid fa-sliders showcase-icon"></i>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Modules Flexibles</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Rythmes et programmes ajustés aux contraintes individuelles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-logo" style="margin-bottom: 1.5rem;">
+                        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="brand-text">
+                            <span class="brand-name">mrkz yjljyly</span>
+                            <span class="brand-subtitle">ldwly lltdryb</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Centre de formation d'excellence à Jijel. Engagement pour la rigueur, l'innovation et le renforcement des compétences professionnelles.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="services.html">Nos Formations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Formations</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Technologies Numériques</a></li>
+                        <li><a href="services.html">Gestion & Management</a></li>
+                        <li><a href="services.html">Communication & Langues</a></li>
+                        <li><a href="services.html">Formations Métier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Coordonnées</h4>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Jijel 18034</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:034504459" style="color: var(--text-secondary);">034 50 44 59</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 mrkz yjljyly ldwly lltdryb. Tous droits réservés.</p>
+                <p>Centre de Formation - Jijel 18034</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

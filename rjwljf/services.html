@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Formations | rjwljf Centre de Formation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1e293b;
+            --accent-gold: #d97706;
+            --accent-glow: rgba(217, 119, 6, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 9rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SERVICES LIST */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            border-color: rgba(217, 119, 6, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(217, 119, 6, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .category-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .category-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .benefit-list li i {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            max-width: 320px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border-light);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: var(--transition);
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            rjwljf
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="services.html" class="active">Formations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="btn-primary">Nous Rejoindre</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <h1>Nos Formations & Programmes</h1>
+        <p>Découvrez une offre de formation élaborée pour répondre aux besoins opérationnels actuels.</p>
+    </header>
+
+    <!-- SERVICES LIST -->
+    <section class="section">
+        <div class="services-list">
+            
+            <!-- Category 1 -->
+            <div class="category-card">
+                <div>
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h2 class="category-title">Technologies & Numérique</h2>
+                    </div>
+                    <p class="category-desc">Apprentissage pratique des systèmes informatiques, bureautique professionnelle et intégration des outils numériques.</p>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Pratique directe sur outils récents</li>
+                        <li><i class="fas fa-check"></i> Exercices d'application professionnelle</li>
+                        <li><i class="fas fa-check"></i> Renforcement des automatismes du numérique</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="btn-primary" style="text-align: center; justify-content: center;">S'informer sur cette catégorie</a>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="category-card">
+                <div>
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-briefcase"></i></div>
+                        <h2 class="category-title">Management & Organisation</h2>
+                    </div>
+                    <p class="category-desc">Formations visant le perfectionnement de l'organisation interne, de la gestion de temps et du pilotage d'activités.</p>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Structuration des flux de travail</li>
+                        <li><i class="fas fa-check"></i> Méthodes d'organisation d'équipe</li>
+                        <li><i class="fas fa-check"></i> Optimisation des processus professionnels</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="btn-primary" style="text-align: center; justify-content: center;">S'informer sur cette catégorie</a>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="category-card">
+                <div>
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h2 class="category-title">Développement des Compétences</h2>
+                    </div>
+                    <p class="category-desc">Modules d'accompagnement ciblés pour renforcer la confiance, la communication et l'efficacité individuelle.</p>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Communication écrite et orale</li>
+                        <li><i class="fas fa-check"></i> Gestion des priorités au quotidien</li>
+                        <li><i class="fas fa-check"></i> Résolution de problèmes complexes</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="btn-primary" style="text-align: center; justify-content: center;">S'informer sur cette catégorie</a>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="category-card">
+                <div>
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-sliders-h"></i></div>
+                        <h2 class="category-title">Programmes Sur-Mesure</h2>
+                    </div>
+                    <p class="category-desc">Formations personnalisées élaborées spécifiquement à la demande selon un cahier des charges défini.</p>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Analyse précise des besoins initiaux</li>
+                        <li><i class="fas fa-check"></i> Adaptabilité du rythme et du contenu</li>
+                        <li><i class="fas fa-check"></i> Évaluation personnalisée des résultats</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="btn-primary" style="text-align: center; justify-content: center;">S'informer sur cette catégorie</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    rjwljf
+                </div>
+                <p>Centre de formation de référence situé à Jijel. Dédié au perfectionnement et à l'acquisition de savoir-faire.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Formations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Coordonnées</h5>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jijel 18034</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:034504432">034 50 44 32</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 rjwljf. Tous droits réservés.</p>
+            <p>Centre de Formation - Jijel</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = id => document.getElementById(id);
+        const toggleBtn = menuToggle('menuToggle');
+        const navLinks = menuToggle('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

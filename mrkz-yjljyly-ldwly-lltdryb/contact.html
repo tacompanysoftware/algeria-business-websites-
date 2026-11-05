@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | mrkz yjljyly ldwly lltdryb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0A0E17;
+            --bg-secondary: #111827;
+            --bg-card: #1F2937;
+            --accent-gold: #C5A059;
+            --accent-gold-light: #E5C158;
+            --accent-gold-glow: rgba(197, 160, 89, 0.25);
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-muted: #6B7280;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(197, 160, 89, 0.4);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-gold), #8A6D3B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A0E17;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 20px var(--accent-gold-glow);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold-light);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--accent-gold), #A37F3E);
+            color: #0A0E17;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 170px 0 80px;
+            background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+        }
+
+        /* Contact Layout */
+        .section {
+            padding: 90px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 3.5rem;
+        }
+
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            border-color: var(--border-highlight);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Form styling */
+        .contact-form-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.1rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px var(--accent-gold-glow);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-gold), #A37F3E);
+            color: #0A0E17;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px var(--accent-gold-glow);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        .form-status {
+            margin-top: 1.25rem;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #4ade80;
+        }
+
+        /* Footer */
+        .footer {
+            background: #06090F;
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-list i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .contact-form-container {
+                padding: 1.75rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="brand-text">
+                    <span class="brand-name">mrkz yjljyly</span>
+                    <span class="brand-subtitle">Centre de Formation</span>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="about.html" class="nav-link">À Propos</a></li>
+                <li><a href="services.html" class="nav-link">Nos Formations</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="contact.html" class="nav-btn"><i class="fa-solid fa-paper-plane"></i> Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contactez-nous</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+                <span>Contact</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Information Cards -->
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h3 class="info-title">Téléphone Direct</h3>
+                            <p class="info-text">
+                                Contactez-nous par téléphone pour toute demande d'information :<br>
+                                <a href="tel:034504459" style="color: var(--accent-gold-light); font-weight: 600; margin-top: 4px; display: inline-block;">034 50 44 59</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h3 class="info-title">Adresse Établissement</h3>
+                            <p class="info-text">
+                                Notre centre de formation vous accueille à :<br>
+                                <strong style="color: var(--text-primary);">Jijel 18034</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <div>
+                            <h3 class="info-title">Information & Inscription</h3>
+                            <p class="info-text">
+                                Remplissez notre formulaire pour recevoir des précisions sur les inscriptions et les calendriers de formation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2 class="form-title">Envoyez une Demande</h2>
+                    <p class="form-subtitle">Complétez les champs ci-dessous. Notre équipe vous apportera une réponse dans les plus brefs délais.</p>
+                    
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="fullname">Nom Complet *</label>
+                            <input type="text" id="fullname" class="form-control" placeholder="Votre nom et prénom" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Adresse Email *</label>
+                            <input type="email" id="email" class="form-control" placeholder="exemple@domaine.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Numéro de Téléphone</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Votre numéro de contact">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Domaine d'Intérêt *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Sélectionnez une option</option>
+                                <option value="Informatique & Digital">Informatique & Technologies Digitales</option>
+                                <option value="Management & Gestion">Management & Gestion d'Entreprise</option>
+                                <option value="Langues & Communication">Langues Vivantes & Communication</option>
+                                <option value="Formations Techniques">Formations Techniques & Métiers</option>
+                                <option value="Renseignement Général">Renseignement Général</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message ou Demande Particulière *</label>
+                            <textarea id="message" class="form-control" placeholder="Précisez votre demande..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Transmettre la demande
+                        </button>
+
+                        <div id="formStatus" class="form-status">
+                            <i class="fa-solid fa-circle-check"></i> Votre message de démonstration a été validé avec succès. Merci de votre intérêt !
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-logo" style="margin-bottom: 1.5rem;">
+                        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="brand-text">
+                            <span class="brand-name">mrkz yjljyly</span>
+                            <span class="brand-subtitle">ldwly lltdryb</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Centre de formation d'excellence à Jijel. Engagement pour la rigueur, l'innovation et le renforcement des compétences professionnelles.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="services.html">Nos Formations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Formations</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Technologies Numériques</a></li>
+                        <li><a href="services.html">Gestion & Management</a></li>
+                        <li><a href="services.html">Communication & Langues</a></li>
+                        <li><a href="services.html">Formations Métier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Coordonnées</h4>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Jijel 18034</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:034504459" style="color: var(--text-secondary);">034 50 44 59</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 mrkz yjljyly ldwly lltdryb. Tous droits réservés.</p>
+                <p>Centre de Formation - Jijel 18034</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.classList.add('success');
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                statusDiv.classList.remove('success');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

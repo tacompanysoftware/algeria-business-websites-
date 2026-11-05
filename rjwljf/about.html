@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | rjwljf Centre de Formation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1e293b;
+            --accent-gold: #d97706;
+            --accent-glow: rgba(217, 119, 6, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 9rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--accent-gold);
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* APPROACH SECTION */
+        .approach-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 3.5rem 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .approach-header {
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .approach-header h3 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-item {
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 1.25rem;
+        }
+
+        .step-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 2rem 6rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            max-width: 320px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border-light);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: var(--transition);
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            rjwljf
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html" class="active">À Propos</a></li>
+            <li><a href="services.html">Formations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="btn-primary">Nous Rejoindre</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <h1>À Propos de rjwljf</h1>
+        <p>Un centre de formation dédié à l'élévation des compétences et au développement professionnel à Jijel.</p>
+    </header>
+
+    <!-- DETAILED INTRO -->
+    <section class="section">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Engagement vers la Réussite Professionnelle</h2>
+                <p>Le centre de formation <strong>rjwljf</strong> se positionne comme un acteur essentiel pour le perfectionnement des connaissances théoriques et pratiques à Jijel 18034.</p>
+                <p>Notre structure propose un cadre d'apprentissage moderne, axé sur la maîtrise d'outils et de méthodologies concrètes requises dans le monde professionnel actuel.</p>
+            </div>
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); padding: 2.5rem; border-radius: 20px;">
+                <i class="fas fa-compass" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1.5rem;"></i>
+                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem;">Notre Orientation</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Offrir des parcours adaptés aux besoins individuels et collectifs, garantissant la montée en compétences et la valorisation du potentiel de chaque apprenant.</p>
+            </div>
+        </div>
+
+        <!-- CORE VALUES -->
+        <h2 style="font-size: 2rem; font-weight: 700; margin-top: 5rem; text-align: center;">Nos Valeurs Fondamentales</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3><i class="fas fa-star"></i> Excellence</h3>
+                <p>Maintien de critères élevés dans le choix des contenus pédagogiques et de la structuration des parcours.</p>
+            </div>
+            <div class="value-card">
+                <h3><i class="fas fa-shield-alt"></i> Intégrité</h3>
+                <p>Un cadre transparent, honnête et axé sur le respect mutuel entre formateurs et apprenants.</p>
+            </div>
+            <div class="value-card">
+                <h3><i class="fas fa-lightbulb"></i> Innovation</h3>
+                <p>Adoption constante de méthodes pédagogiques actives et d'outils d'apprentissage modernes.</p>
+            </div>
+        </div>
+
+        <!-- APPROACH -->
+        <div class="approach-box">
+            <div class="approach-header">
+                <h3>Notre Démarche Pédagogique</h3>
+                <p style="color: var(--text-muted);">Une organisation structurée garantissant l'acquisition progressive des compétences.</p>
+            </div>
+            <div class="approach-steps">
+                <div class="step-item">
+                    <h4>1. Évaluation Initiale</h4>
+                    <p>Analyse des acquis et identification claire des besoins de formation.</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. Apprentissage Immersif</h4>
+                    <p>Mise en pratique directe à travers des cas d'étude et des ateliers guidés.</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. Consolidation</h4>
+                    <p>Vérification de l'intégration des concepts et accompagnement final.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <div class="cta-banner">
+        <h2>Discutons de votre projet d'apprentissage</h2>
+        <p>Notre équipe à Jijel est à votre disposition pour vous orienter vers la formation adéquate.</p>
+        <a href="contact.html" class="btn-primary">Prendre Contact <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    rjwljf
+                </div>
+                <p>Centre de formation de référence situé à Jijel. Dédié au perfectionnement et à l'acquisition de savoir-faire.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Formations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Coordonnées</h5>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jijel 18034</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:034504432">034 50 44 32</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 rjwljf. Tous droits réservés.</p>
+            <p>Centre de Formation - Jijel</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = id => document.getElementById(id);
+        const toggleBtn = menuToggle('menuToggle');
+        const navLinks = menuToggle('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
